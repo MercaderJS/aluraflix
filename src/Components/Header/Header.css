@@ -1,0 +1,44 @@
+.header{
+    width: 100%;
+    background-image: url("public/img/imagen-header.png") ;
+    background-size: 120%;
+    background-position:1% 22%;
+    height: 450px;
+    top: 600px;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.479);
+    
+}
+
+
+
+
+.texto__header{
+    color: rgb(255, 255, 255);
+    width: 43%;
+    position: absolute;
+    top: 170px;
+    left: 30px;
+    font-size: 1.1rem;
+    transform: translateY(-40%); /* Posición inicial */
+    animation: emerge 0.7s ease-out forwards; /* Animación al renderizar */
+}
+
+/* animacion del texto del header */
+@keyframes emerge {
+    0% {
+        transform: translateY(-40%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+h1{
+    font-weight: bold;
+    font-size: 3rem;
+}

@@ -1,0 +1,69 @@
+
+/* contenedor de barra de navegacion */
+.nav__container {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 650px;
+
+    
+
+
+    /* estilos  */
+    border-bottom: 4px solid  #2271D1;
+    background: var(--Dark-Grey, #262626);
+    box-shadow: 0px 5px 29px 0px rgba(34, 113, 209, 0.70);
+}
+
+/* contenedor de botones */
+.button__container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+/* contenedor de botones */
+.button__container button{
+    width: 110px;
+    height: 40px;
+    border-radius: 8px;
+    font-family: 'roboto';
+}
+
+/* boton de home */
+.home__button{
+    color: #2271D1;
+    background-color: black;
+    border:solid, 2px #2271D1;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.home__button:hover{
+    color:#0e43c8;
+    border-color: #0e43c8;
+    
+}
+
+/* boton para añadir nuevo video */
+.new__video--button{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    border:solid, 2px #ffffff;
+    background-color: transparent;
+}
+
+.new__video--button:hover{
+    color: gray;
+    border-color: rgb(166, 157, 157);
+}
+
