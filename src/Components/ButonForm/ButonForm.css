@@ -1,14 +1,14 @@
 /* contenedor de botones */
-.button__container {
-
+.buttons {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    width: 100%;
     gap: 25px;
+    padding-left: 5%;
 }
 
-.button__container button{
-    width: 110px;
+.buttons button{
+    width: 15%;
     height: 40px;
     border-radius: 8px;
     font-family: 'roboto';

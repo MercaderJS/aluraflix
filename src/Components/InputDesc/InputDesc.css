@@ -1,0 +1,12 @@
+.input__desc{
+    height: 120px;
+    width: 100%;
+    resize: none;
+    background-color: black;
+    border: solid 2px #676060;
+    border-radius: 3px;
+}
+
+.input__desc--container{
+    width: 45%;
+}

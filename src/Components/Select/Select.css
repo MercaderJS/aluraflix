@@ -1,0 +1,25 @@
+.select__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10% 10% 80%;
+    width: 47%;
+    padding: 2px 1px 3px;
+
+}
+
+select {
+    height: 41px;
+    border-radius: 7px;
+    width: 100%;
+    border: 2px solid #676060;
+    background: #191919;
+    height: 35px;
+    gap: 3px;
+    
+}
+
+label{
+    font-weight: 1000;
+    font-size: 1.1rem;
+}
