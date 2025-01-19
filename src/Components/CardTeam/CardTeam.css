@@ -1,0 +1,59 @@
+.card {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    width: px;
+    margin: 10px;
+    gap: 30px;
+    overflow-x: scroll;
+    scroll-snap-type: mandatory;
+
+}
+
+/* Estilo general del scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho del scrollbar */
+    height: 12px;
+    /* Altura para scroll horizontal */
+}
+
+/* Fondo del scrollbar */
+::-webkit-scrollbar-track {
+    background: #63a7fa;
+    /* Color de fondo del track */
+    border-radius: 6px;
+    /* Bordes redondeados */
+}
+
+/* Barra que se mueve (thumb) */
+::-webkit-scrollbar-thumb {
+    background: #2271D1;
+    /* Color de la barra */
+    border-radius: 6px;
+    /* Bordes redondeados */
+}
+
+.iframe {
+    display: flex;
+    width: 99.7%;
+    height: 170px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    flex-direction: column;
+    border: solid 1px aqua;
+
+
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    background-color: black;
+    box-shadow: 1px 3px 14px 1px #6BD1FF;
+    margin: 2% 10px;
+}

@@ -8,6 +8,7 @@ import NavBar from './Components/NavBar/NavBar'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import NewVideoPage from './Components/NewVideoPage/NewVideoPage'
+import TeamArea from './Components/TeamArea/TeamArea'
 
 
 
@@ -19,8 +20,9 @@ function App() {
         
         {/* encabezado */}
         <NavBar />
-        {/* <Header /> */}
-        <NewVideoPage />
+        <Header />
+        {/* <NewVideoPage /> */}
+        <TeamArea />
         <Footer />
     </>
   )

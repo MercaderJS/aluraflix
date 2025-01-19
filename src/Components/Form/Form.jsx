@@ -1,4 +1,7 @@
 import './Form.css'
+// import Input from '../Input/Input';
+// import InputSelect from '../InputSelect/InputSelect';
+import ButtonForm from '../ButonForm/ButonForm';
 
 function Form(){
     return (

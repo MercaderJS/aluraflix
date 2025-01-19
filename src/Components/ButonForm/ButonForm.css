@@ -1,0 +1,47 @@
+/* contenedor de botones */
+.button__container {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+
+.button__container button{
+    width: 110px;
+    height: 40px;
+    border-radius: 8px;
+    font-family: 'roboto';
+}
+
+/* boton de home */
+.guardar__button{
+    color: #2271D1;
+    background-color: black;
+    border:solid, 2px #2271D1;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.guardar__button:hover{
+    color:#0e43c8;
+    border-color: #0e43c8;
+    
+}
+
+/* boton para añadir nuevo video */
+.limpiar__button{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    border:solid, 2px #ffffff;
+    background-color: transparent;
+}
+
+.limpiar__button:hover{
+    color: gray;
+    border-color: rgb(166, 157, 157);
+}
