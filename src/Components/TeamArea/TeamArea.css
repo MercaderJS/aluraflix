@@ -14,3 +14,35 @@
     height: auto;
     margin-bottom: 3px;
 }
+
+.video__container{
+    display: flex;
+    flex-flow: 3;
+    overflow-x: scroll;
+
+}
+
+
+/* Estilo general del scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho del scrollbar */
+    height: 12px;
+    /* Altura para scroll horizontal */
+}
+
+/* Fondo del scrollbar */
+::-webkit-scrollbar-track {
+    background: #63a7fa;
+    /* Color de fondo del track */
+    border-radius: 6px;
+    /* Bordes redondeados */
+}
+
+/* Barra que se mueve (thumb) */
+::-webkit-scrollbar-thumb {
+    background: #2271D1;
+    /* Color de la barra */
+    border-radius: 6px;
+    /* Bordes redondeados */
+}

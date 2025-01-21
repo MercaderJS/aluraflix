@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 function Form(props) {
 
-    const { anadirCards, categorias } = props
+    const { anadirCards, categorias  } = props
     // evita que se recargue la pagina al enviar el formulario
 
 
