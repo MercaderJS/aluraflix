@@ -1,45 +1,36 @@
 import './CardTeam.css'
 import ButonsCard from '../ButonsCard/ButonsCard'
+import { useState } from 'react'
 
-function CardTeam(){
-    return(
-        <section className='card'>
+function CardTeam(props) {
+    const { cards } = props
+    const [play, setPlay] = useState(true);
+    const isPlay = () => setPlay(false);
 
-        <article>
-        <iframe src="https://www.youtube.com/embed/mAO_cMAUlOM?si=2K2O5uz3nOaSzG5L"  className='iframe'>
-            Hola Mundo
-        </iframe>
-        <ButonsCard />
-        </article>
-        
-        <article>
-        <iframe src="https://www.youtube.com/embed/mAO_cMAUlOM?si=2K2O5uz3nOaSzG5L"  className='iframe'>
-            Hola Mundo
-        </iframe>
-        <ButonsCard />
-        </article>
 
-        <article>
-        <iframe src="https://www.youtube.com/embed/mAO_cMAUlOM?si=2K2O5uz3nOaSzG5L"  className='iframe'>
-            Hola Mundo
-        </iframe>
-        <ButonsCard />
-        </article>
-        
-        
-        <article>
-        <iframe src="https://www.youtube.com/embed/mAO_cMAUlOM?si=2K2O5uz3nOaSzG5L"  className='iframe'>
-            Hola Mundo
-        </iframe>
-        <ButonsCard />
-        </article>
-        
-        <article>
-        <iframe src="https://www.youtube.com/embed/mAO_cMAUlOM?si=2K2O5uz3nOaSzG5L"  className='iframe'>
-            Hola Mundo
-        </iframe>
-        <ButonsCard />
-        </article>
+    return (
+        <section className='card' >
+
+            <article >
+                {play ? (
+                    <img src={`${cards.imagen}`}
+                        alt="portada"
+                        className='iframe'
+                        onClick={isPlay}
+
+                    />
+                ) : (
+                    <iframe src={`${cards.video}`}
+                        className='iframe'
+                    >
+                    </iframe>
+
+                )
+                }
+
+                <ButonsCard />
+            </article>
+
         </section>
     )
 }

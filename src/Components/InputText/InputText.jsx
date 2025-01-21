@@ -1,10 +1,28 @@
 import './InputText.css'
 
-function InputText(){
-    return(
+function InputText(props) {
+    const { titulo, placeholder } = props;
+    console.log(props);
+
+    const manejarCambio = (e) => {
+        props.actualizarValor(e.target.value)
+        console.log(manejarCambio);
+        
+    }
+
+
+    return (
         <div className='input__area'>
-            <h3>Titulo</h3>
-            <input type="text" className='input'/>
+            <label>{titulo}</label>
+            <input
+                type="text"
+                className='input'
+                placeholder={placeholder}
+                onChange={manejarCambio}
+                value={props.valor}
+                required
+
+            />
         </div>
     )
 }

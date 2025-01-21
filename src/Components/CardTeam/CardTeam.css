@@ -36,7 +36,7 @@
 
 .iframe {
     display: flex;
-    width: 99.7%;
+    width: 16rem;
     height: 170px;
     justify-content: center;
     align-items: center;
@@ -54,6 +54,6 @@ article {
     height: auto;
     border-radius: 8px;
     background-color: black;
-    box-shadow: 1px 3px 14px 1px #6BD1FF;
+    box-shadow: 1px 3px 14px 1px #2271D1;
     margin: 2% 10px;
 }
