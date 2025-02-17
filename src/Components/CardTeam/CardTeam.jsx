@@ -9,27 +9,27 @@ function CardTeam(props) {
 
 
     return (
+        <></>
+            // <article className='card'>
+            //     {play ? (
+            //         <img src={`${cards.imagen}`}
+            //             alt="portada"
+            //             className='iframe'
+            //             onClick={isPlay}
+            //         />
+            //     ) : (
+            //         <iframe src={`${cards.video}`}
+            //             className='iframe'
+            //         >
+            //         </iframe>
+            //     )
+            //     }
 
-            <article className='card'>
-                {play ? (
-                    <img src={`${cards.imagen}`}
-                        alt="portada"
-                        className='iframe'
-                        onClick={isPlay}
-                    />
-                ) : (
-                    <iframe src={`${cards.video}`}
-                        className='iframe'
-                    >
-                    </iframe>
-                )
-                }
-
-                <ButonsCard 
-                    eliminarCard={eliminarCard}
-                    cards={cards}
-                />
-            </article>
+            //     <ButonsCard 
+            //         eliminarCard={eliminarCard}
+            //         cards={cards}
+            //     />
+            // </article>
     )
 }
 
