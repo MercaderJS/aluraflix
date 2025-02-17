@@ -3,12 +3,19 @@ import "./NavBar.css";
 import Button from '../Button/Button'
 
 function NavBar(props) {
-    const { buttons } = props;
+    const { buttons, logo } = props;
     const BotonHome = () => window.location.href = '/';
 
     return (
         <nav className="nav__container">
-            <img src="img/image 1.png" alt="logo aluraflix" />
+            <a
+                href="/"
+            >
+                <img
+                    src={logo}
+                    alt="logo aluraflix"
+                />
+            </a>
 
             <div className="button__container">
                 <Button

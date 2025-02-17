@@ -33,6 +33,7 @@ function App() {
     console.log("borrando", nuevasCards);
   };
 
+  const logo = "img/image 1.png";
   // Botones 
   const buttons = {
     buttonHome: {
@@ -49,8 +50,28 @@ function App() {
         window.location.href = "/";
       }
     },
-  };
-
+    buttonHeader: {
+      text: "Agregar video",
+      image: "img/logomain.png",
+      action: () => {
+        window.location.href = '/'
+      }
+    },
+    buttonDeleteCard: {
+      text: "Agregar video",
+      image: "img/logomain.png",
+      action: () => {
+        window.location.href = '/'
+      }
+    },
+    buttonEditCard: {
+      text: "Agregar video",
+      image: "img/logomain.png",
+      action: () => {
+        window.location.href = '/';
+      }
+    }
+  }
 
   // Actualiza automáticamente en localStorage si cambia el estado de cards
   useEffect(() => {
@@ -74,17 +95,20 @@ function App() {
   ];
 
   return (
-    <BrowserRouter>
+    <>
       <NavBar
+        buttons={buttons}
+        logo={logo}
+      />
+      <Header
         buttons={buttons}
 
       />
-      {/* <Header /> */}
-      <NewVideoPage
+      {/* <NewVideoPage
         categorias={categorias.map((categoria) => categoria.categoria)}
         anadirCards={anadirCards}
-      />
-      {categorias.map((categoria) => (
+      /> */}
+      {/* {categorias.map((categoria) => (
         <TeamArea
           eliminarCard={eliminarCard}
           datos={categoria}
@@ -93,9 +117,9 @@ function App() {
           anadirCards={anadirCards}
         />
       ))}
-      {/* <TeamArea /> */}
+      <TeamArea /> */}
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
