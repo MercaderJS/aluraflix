@@ -9,6 +9,7 @@ import Footer from './Components/Footer/Footer'
 import NewVideoPage from './Components/NewVideoPage/NewVideoPage'
 import TeamArea from './Components/TeamArea/TeamArea'
 
+
 function App() {
   // Recupera las tarjetas del localStorage al cargar la página
   const [cards, actualizarCards] = useState(() => {
@@ -29,8 +30,27 @@ function App() {
     localStorage.setItem('cards', JSON.stringify(nuevasCards)); // Actualiza en localStorage
     alert("El video ha sido eliminado");
     actualizarCards(nuevasCards);
-    console.log("borrando",nuevasCards);
+    console.log("borrando", nuevasCards);
   };
+
+  // Botones 
+  const buttons = {
+    buttonHome: {
+      text: "Home",
+      image: "",
+      action: () => {
+        window.location.href = "/";
+      }
+    },
+    buttonNewVideo: {
+      text: "Nuevo Video",
+      image: "",
+      action: () => {
+        window.location.href = "/";
+      }
+    },
+  };
+
 
   // Actualiza automáticamente en localStorage si cambia el estado de cards
   useEffect(() => {
@@ -54,8 +74,11 @@ function App() {
   ];
 
   return (
-    <>
-      <NavBar />
+    <BrowserRouter>
+      <NavBar
+        buttons={buttons}
+
+      />
       {/* <Header /> */}
       <NewVideoPage
         categorias={categorias.map((categoria) => categoria.categoria)}
@@ -72,7 +95,7 @@ function App() {
       ))}
       {/* <TeamArea /> */}
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
