@@ -1,8 +1,7 @@
 import { useState } from "react"
 import "./Header.css"
 import Button from "../Button/Button"
-import Card from "../Card/Card";
-import Form from "../Form/Form";
+import CardTeam from "../CardTeam/CardTeam";
 
 
 function Header(props) {
@@ -26,13 +25,13 @@ function Header(props) {
                     buttonRole="button__header"
                     action={buttons.buttonHeader.action}
                 />
-
-                <Card
-                    text={buttons.buttonEditCard}
-                    buttonRole="button__header"
-                    action={buttons}
-                />
-
+                <>
+                    <CardTeam
+                        text={buttons.buttonEditCard}
+                        buttonRole="button__header"
+                        action={buttons}
+                    />
+                </>
             </div>
         </header>
     )

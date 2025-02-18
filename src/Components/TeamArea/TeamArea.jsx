@@ -1,5 +1,5 @@
 import './TeamArea.css'
-import CardTeam from '../Card/Card'
+import CardTeam from '../CardTeam/CardTeam'
 
 function TeamArea(props) {
     const { colorPrimario, colorSecundario, categoria } = props.datos
@@ -19,14 +19,14 @@ function TeamArea(props) {
                     </h3>
                 </h3>
                 <div className='video__container'>
-                {/* {
+                {
                         cards.map((cards, indice) => <CardTeam
                             eliminarCard={eliminarCard}
                             cards={cards}
                             key={indice}
                             colorPrimario={colorPrimario}
                         />)
-                    } */}
+                    }
                 </div>
 
             </section>

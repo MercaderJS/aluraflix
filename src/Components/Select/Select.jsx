@@ -2,23 +2,23 @@ import './Select.css'
 
 function Select(props) {
 
-    const categories = [
+    const categorias = [
         "Front End",
         "Back End",
         "Innovación y Gestión"
     ]
 
-    const change = (e) => {
+    const manejarCambio = (e) => {
         console.log("cambio", e.target.value)
-        props.setValue(e.target.value)
+        props.actualizarValor(e.target.value)
     }
 
     return (
         <div className='select__container'>
-            <label>{props.label}</label>
-            <select value={props.value} onChange={change}>
+            <label>{props.titulo}</label>
+            <select value={props.valor} onChange={manejarCambio}>
                 <option value="" disabled defaultValue="" hidden>Seleccionar categoria</option>
-                {categories.map((category, index) => <option key={index} value={category}>{category}</option>)}
+                {categorias.map((categoria, indice) => <option key={indice} value={categoria}>{categoria}</option>)}
             </select>
         </div>
     )
