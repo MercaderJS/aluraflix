@@ -10,20 +10,19 @@ import { useState } from 'react';
 
 function Form(props) {
 
-    const { anadirCards, categorias  } = props
+    const { anadirCards, categorias  } = props;
+    
     // evita que se recargue la pagina al enviar el formulario
-
-
-    const enviarFormulario = (e) => {
+    const submitForm= (e) => {
         e.preventDefault()
         console.log("Manejar el envio", e)
 
         let datosEnviar = {
-            titulo,
-            categoria,
-            imagen,
+            title,
+            category,
+            imag,
             video,
-            descripcion
+            description
         }
         anadirCards(datosEnviar);
         console.log(datosEnviar)
@@ -32,12 +31,12 @@ function Form(props) {
 
 
     // useState para cada campo del formulario
-    const [titulo, actualizarTitulo] = useState("")
-    const [categoria, actualizarCategoria] = useState("")
-    const [imagen, actualizarImagen] = useState("")
-    const [video, actualizarVideo] = useState("")
-    const [descripcion, actualizarDescripcion] = useState("")
-    const [valor, actualizarValor] = useState("")
+    const [title, setTitle] = useState("")
+    const [category, setCategory] = useState("")
+    const [img, setImg] = useState("")
+    const [video, setVideo] = useState("")
+    const [description, setDescription] = useState("")
+    const [value, setValue] = useState("")
 
 
     return <section className='form__container'>
@@ -45,43 +44,43 @@ function Form(props) {
             Crear Tarjeta
         </h2>
         <form action="" title='Formulario de nuevo video'
-            onSubmit={enviarFormulario}
+            onSubmit={submitForm}
         >
 
             <InputText
                 required
-                titulo="Título"
-                valor={titulo}
+                label="Título"
+                value={title}
                 placeholder="Ingresar nombre"
-                actualizarValor={actualizarTitulo}
+                setValue={setTitle}
             />
             <Select
                 required
-                titulo="Categoría"
-                valor={categoria}
-                actualizarValor={actualizarCategoria}
-                categorias={categorias}
+                label="Categoría"
+                value={category}
+                setValue={setCategory}
+                categories={categorias}
             />
             <InputText
                 required
-                titulo="Imagen"
-                valor={imagen}
+                label="Imagen"
+                value={img}
                 placeholder="Ingresa una URL valida"
-                actualizarValor={actualizarImagen}
+                setValue={setImg}
             />
             <InputText
-                titulo="Video"
-                placeholder="Ingresa el enlace del video"
-                valor={video}
-                required
-                actualizarValor={actualizarVideo}
+		required
+                label="Video"
+                value={video}
+		placeholder="Ingresa el enlace del video"
+                setValue={setVideo}
             />
             <InputDesc
                 required
-                titulo="Descripción"
-                valor={descripcion}
+                label="Descripción"
+                value={description}
                 placeholder="¿de que trata este video?"
-                actualizarValor={actualizarDescripcion}
+                setValue={setDescription}
 
             />
             <ButtonForm className='button'
@@ -92,5 +91,4 @@ function Form(props) {
 
 }
 
-
-export default Form
+export default Form;
