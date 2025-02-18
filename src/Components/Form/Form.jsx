@@ -3,7 +3,7 @@ import './Form.css'
 // import InputSelect from '../InputSelect/InputSelect';
 import ButtonForm from '../ButonForm/ButonForm';
 import Select from '../Select/Select';
-import InputText from '../InputText/InputText';
+import Input from '../Input/Input';
 import InputDesc from '../InputDesc/InputDesc';
 import { useState } from 'react';
 
@@ -20,7 +20,7 @@ function Form(props) {
         let datosEnviar = {
             title,
             category,
-            imag,
+            img,
             video,
             description
         }
@@ -47,7 +47,7 @@ function Form(props) {
             onSubmit={submitForm}
         >
 
-            <InputText
+            <Input
                 required
                 label="Título"
                 value={title}
@@ -58,21 +58,21 @@ function Form(props) {
                 required
                 label="Categoría"
                 value={category}
-                setValue={setCategory}
                 categories={categorias}
+                setValue={setCategory}
             />
-            <InputText
+            <Input
                 required
                 label="Imagen"
                 value={img}
                 placeholder="Ingresa una URL valida"
                 setValue={setImg}
             />
-            <InputText
+            <Input
 		required
                 label="Video"
                 value={video}
-		placeholder="Ingresa el enlace del video"
+		        placeholder="Ingresa el enlace del video"
                 setValue={setVideo}
             />
             <InputDesc
