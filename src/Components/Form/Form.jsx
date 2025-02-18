@@ -59,7 +59,7 @@ function Form(props) {
                 label="Categoría"
                 value={category}
                 setValue={setCategory}
-                category={category}
+                categories={categorias}
             />
             <InputText
                 required
