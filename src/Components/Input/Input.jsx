@@ -1,12 +1,12 @@
 import './Input.css'
 
 function Input(props) {
-    const { label, placeholder, setValue, value } = props;
+    const { label, placeholder, setValue } = props;
     console.log(props);
 
     const change = (e) => {
         setValue(e.target.value)
-        console.log(setValue);
+        console.log(value);
         
     }
 
@@ -19,7 +19,6 @@ function Input(props) {
                 className='input'
                 placeholder={placeholder}
                 onChange={change}
-                value={value}
                 required
 
             />
