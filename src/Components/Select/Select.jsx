@@ -1,7 +1,8 @@
+import { replace } from 'react-router';
 import './Select.css'
 
 function Select(props) {
-
+    const { label, value, setValue } = props;
     const categories = [
         "Front End",
         "Back End",
@@ -9,19 +10,31 @@ function Select(props) {
     ]
 
     const change = (e) => {
-        console.log("cambio", e.target.value)
-        props.setValue(e.target.value)
+        setValue(e.target.value)
+        // console.log(value);
     }
 
     return (
         <div className='select__container'>
-            <label>{props.label}</label>
-            <select value={props.value} onChange={change}>
-                <option value="" disabled defaultValue="" hidden>Seleccionar categoria</option>
-                {categories.map((category, index) => <option key={index} value={category}>{category}</option>)}
+            <label>{label}</label>
+            <select value={value} onChange={change}>
+
+                <option
+                    defaultValue="Seleccionar categoría"
+                    selected
+                    hidden
+                >
+                    Seleccionar categoría
+                </option>
+                {categories.map((category, index)=> 
+                <option key={index} value={category}>
+                    {category}
+                </option>)}
+
             </select>
         </div>
     )
 }
 
 export default Select
+replace();
