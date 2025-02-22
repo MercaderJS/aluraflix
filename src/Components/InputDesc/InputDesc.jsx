@@ -1,22 +1,23 @@
 import './InputDesc.css'
 
 function InputDesc(props) {
-    
-    const manejarCambio = (e) => {
-        props.actualizarValor(e.target.value)
-        console.log(manejarCambio);
+    const { label,setValue, placeholder, value } = props;
+    const change = (e) => {
+        setValue(e.target.value)
+        console.log(value);
         
     }
 
     return (
         <div className='input__desc--container'>
-            <label>{props.titulo}</label>
+            <label>{label}</label>
             <textarea
+                required
                 type="text"
                 className='input__desc'
-                placeholder={props.placeholder}
-                required={props.required}
-                onChange={manejarCambio}
+                placeholder={placeholder}
+                onChange={change}
+                
             />
         </div>
     )
