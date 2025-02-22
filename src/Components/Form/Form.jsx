@@ -6,11 +6,12 @@ import Select from '../Select/Select';
 import Input from '../Input/Input';
 import InputDesc from '../InputDesc/InputDesc';
 import { useState } from 'react';
+import Button from '../Button/Button';
 
 
 function Form(props) {
 
-    const { anadirCards, categorias  } = props;
+    const { anadirCards, buttons  } = props;
     
     // evita que se recargue la pagina al enviar el formulario
     const submitForm= (e) => {
@@ -36,8 +37,6 @@ function Form(props) {
     const [img, setImg] = useState("")
     const [video, setVideo] = useState("")
     const [description, setDescription] = useState("")
-    const [value, setValue] = useState("")
-
 
     return <section className='form__container'>
         <h2>
@@ -58,7 +57,6 @@ function Form(props) {
                 required
                 label="Categoría"
                 value={category}
-                categories={categorias}
                 setValue={setCategory}
             />
             <Input
@@ -83,9 +81,13 @@ function Form(props) {
                 setValue={setDescription}
 
             />
-            <ButtonForm className='button'
-
+            <Button
+                buttonrole={'guardar__button'}
+                text={buttons.buttonFormClean.text}
+                type={buttons.buttonFormClean.type}
+            
             />
+            
         </form>
     </section>
 
