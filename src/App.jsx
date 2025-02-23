@@ -49,6 +49,7 @@ function App() {
     buttonHome: {
       text: "Home",
       image: "",
+      type: "button",
       action: () => {
         window.location.href = "/";
       }
@@ -56,6 +57,7 @@ function App() {
     buttonNewVideo: {
       text: "Nuevo Video",
       image: "",
+      type: "button",
       action: () => {
         window.location.href = "/";
       }
@@ -63,6 +65,7 @@ function App() {
     buttonHeader: {
       text: "Agregar video",
       image: "img/logomain.png",
+      type: "button",
       action: () => {
         viewForm();
       }
@@ -70,13 +73,31 @@ function App() {
     buttonDeleteCard: {
       text: "Agregar video",
       image: "img/logomain.png",
+      type: "button",
       action: () => {
-        window.location.href = '/'
+        window.location.href = '/';
       }
     },
     buttonEditCard: {
       text: "Agregar video",
       image: "img/logomain.png",
+      type: "button",
+      action: () => {
+        
+      }
+    },
+    buttonFormSave: {
+      text: "Añadir",
+      image: "",
+      type: "submit",
+      action: () => {
+        
+      }
+    },
+    buttonFormClean: {
+      text: "Limpiar",
+      image: "",
+      type: "reset",
       action: () => {
         
       }
@@ -89,7 +110,7 @@ function App() {
   // }, [cards]);
 
   // Categorías y colores
-  const categorias = [
+  const categories = [
     {
       categoria: "Back End",
       colorPrimario: "#57C278",
@@ -113,7 +134,7 @@ function App() {
       <Header
         buttons={buttons}
       />
-      {form && <Form/>}
+      {form && <Form buttons={buttons}/>}
       {/* <NewVideoPage
         categorias={categorias.map((categoria) => categoria.categoria)}
         anadirCards={anadirCards}
