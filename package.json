@@ -1,6 +1,7 @@
 {
   "name": "aluraflix",
   "private": true,
+  "homepage": "https://github.io/MercaderJS/aluraflix",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
