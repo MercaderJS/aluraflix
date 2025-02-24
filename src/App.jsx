@@ -81,6 +81,7 @@ function App() {
   // Categorías y colores
   const categorias = [
     {
+      
       categoria: "Back End",
       colorPrimario: "#57C278",
     },
