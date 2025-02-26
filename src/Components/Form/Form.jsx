@@ -11,7 +11,7 @@ import Button from '../Button/Button';
 
 function Form(props) {
 
-    const { anadirCards, buttons  } = props;
+    const { anadirCards, buttons, contextForm  } = props;
     
     // evita que se recargue la pagina al enviar el formulario
     const submitForm= (e) => {
@@ -25,9 +25,8 @@ function Form(props) {
             video,
             description
         }
-        anadirCards(datosEnviar);
-        console.log(datosEnviar)
-
+        contextForm.headerAddCard.funcData(datosEnviar);
+        contextForm.headerAddCard.state;
     }
 
 
