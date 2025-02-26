@@ -18,7 +18,7 @@ function TeamArea(props) {
                         {categoria}
                     </h3>
                 </h3>
-                <div className='video__container'>
+		<div className='video__container'>
                 {/* {
                         cards.map((cards, indice) => <CardTeam
                             eliminarCard={eliminarCard}
@@ -37,5 +37,4 @@ function TeamArea(props) {
 }
 
 export default TeamArea
-
 

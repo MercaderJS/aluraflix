@@ -39,8 +39,7 @@ function App() {
 	const [formNewVideo, setFormNewVideo] = useState(false);
 	const [formHeader, setFormHeader] = useState(false);
 	const [formEditHeader, setFormEditHeader] = useState(false);
-	const [formMain, setFormMain] = useState(false);
-	const [formEditMain, setFormMainEdit] = useState(false);
+	const [formEditNewVideo, setFormEditNewVideo] = useState(false);
 
 	// datos de form para agregar cards en <TeamArea/>
 	const dataFormNewVideo = (dataForm) =>{
@@ -62,7 +61,7 @@ function App() {
 		const dataCard = dataForm;
 		return dataCard;
 	}
-
+    
 	//contexto del formulario
 	const contextForm = {
 		mainAddCard: {
@@ -71,7 +70,7 @@ function App() {
 			funcData: dataFormNewVideo
 		},
 		editMainCard: {
-			state: () => setFomMainEdit(!formEditMain),
+			state: () => setFomEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: dataFormEditNewVideo
 		},
@@ -87,8 +86,20 @@ function App() {
 		},
 
 	}
+    //cambio de funcion al enviar datos de formulario
+    const funcChangeContext = () => {
+	if (formNewVideo){
+	    return dataFormNewVideo;
+	}else if(formHeader){
+	    return dataFormHeader;
+	}else if (formEditHeader){
+	    return dataFormEditHeader;
+	}else if (formEditNewVideo){
+	    return dataFormEditNewVideo;
+	}
+    }
 
-	
+    
 	//alternar formulario
 	const [form, setForm] = useState(false); 
 	const viewForm = () => {
@@ -101,7 +112,7 @@ function App() {
 	// Botones 
 	const buttons = {
 		buttonHome: {
-			text: "Home",
+ 			text: "Home",
 			image: "",
 			type: "button",
 			action: () => {
