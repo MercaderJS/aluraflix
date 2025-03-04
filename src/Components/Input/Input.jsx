@@ -1,7 +1,7 @@
 import './Input.css'
 
 function Input(props) {
-    const { label, placeholder, setValue } = props;
+    const { label, placeholder, setValue, value } = props;
     console.log(props);
 
     const change = (e) => {

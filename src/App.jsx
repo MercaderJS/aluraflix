@@ -42,26 +42,39 @@ function App() {
 	const [formEditNewVideo, setFormEditNewVideo] = useState(false);
 
 	// datos de form para agregar cards en <TeamArea/>
-	const dataFormNewVideo = (dataForm) =>{
-		const dataCard = dataForm;
+	const dataFormNewVideo = (dataForm) => {
+		const dataCard = console.log("desde newV",dataForm);
 		return dataCard;
 	}
 	//datos de form para editar card en <TeamArea/>
-	const dataFormEditNewVideo = (dataForm) =>{
-		const dataCard = dataForm;
+	const dataFormEditNewVideo = (dataForm) => {
+		const dataCard = console.log("desde newv",dataForm);
 		return dataCard;
 	}
 	//datos de form para agregar cards en <Header/>
-	const dataFormHeader = (dataForm) =>{
+	const dataFormHeader = (dataForm) => {
 		const dataCard = dataForm;
-		return console.log(dataCard);
+		return console.log("desde header",dataCard);
 	}
 	// datos de form para editar card en <Header/>
-	const dataFormEditHeader = (dataForm) =>{
+	const dataFormEditHeader = (dataForm) => {
 		const dataCard = dataForm;
-		return dataCard;
+		return console.log("desde header",dataCard);
 	}
-    
+
+	//====cambio de funcion al enviar datos de formulario====//
+	const funcChangeContext = (dataForm) => {
+		if (formNewVideo) {
+			return dataFormNewVideo(dataForm);
+		} else if (formHeader) {
+			return dataFormHeader(dataForm);
+		} else if (formEditHeader) {
+			return dataFormEditHeader(dataForm);
+		} else if (formEditNewVideo) {
+			return dataFormEditNewVideo(dataForm);
+		}
+	}
+
 	//contexto del formulario
 	const contextForm = {
 		mainAddCard: {
@@ -70,7 +83,7 @@ function App() {
 			funcData: dataFormNewVideo
 		},
 		editMainCard: {
-			state: () => setFomEditNewVideo(!formEditNewVideo),
+			state: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: dataFormEditNewVideo
 		},
@@ -86,22 +99,10 @@ function App() {
 		},
 
 	}
-    //cambio de funcion al enviar datos de formulario
-    const funcChangeContext = () => {
-	if (formNewVideo){
-	    return dataFormNewVideo;
-	}else if(formHeader){
-	    return dataFormHeader;
-	}else if (formEditHeader){
-	    return dataFormEditHeader;
-	}else if (formEditNewVideo){
-	    return dataFormEditNewVideo;
-	}
-    }
 
-    
+
 	//alternar formulario
-	const [form, setForm] = useState(false); 
+	const [form, setForm] = useState(false);
 	const viewForm = () => {
 		setForm(!form);
 		console.log("hola");
@@ -112,7 +113,7 @@ function App() {
 	// Botones 
 	const buttons = {
 		buttonHome: {
- 			text: "Home",
+			text: "Home",
 			image: "",
 			type: "button",
 			action: () => {
@@ -149,7 +150,7 @@ function App() {
 			image: "img/logomain.png",
 			type: "button",
 			action: () => {
-			
+
 			}
 		},
 		buttonFormSave: {
@@ -163,7 +164,7 @@ function App() {
 		buttonFormClean: {
 			text: "Limpiar",
 			image: "",
-			type: "reset",
+			type: "submit",
 			action: () => {
 
 			}
@@ -201,8 +202,10 @@ function App() {
 				buttons={buttons}
 			/>
 			{form && <Form 		/*si se clica algun boton para crear una card*/
-				buttons={buttons} 
+				buttons={buttons}
 				contextForm={contextForm}
+				funcChangeContext={funcChangeContext}
+				formHeader={formHeader}
 			/>}
 			{/* <NewVideoPage
         categorias={categorias.map((categoria) => categoria.categoria)}
