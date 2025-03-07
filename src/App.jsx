@@ -41,72 +41,79 @@ function App() {
 	const [formEditHeader, setFormEditHeader] = useState(false);
 	const [formEditNewVideo, setFormEditNewVideo] = useState(false);
 
-	// datos de form para agregar cards en <TeamArea/>
-	const dataFormNewVideo = (dataForm) => {
-		const dataCard = console.log("desde newV",dataForm);
-		return dataCard;
-	}
-	//datos de form para editar card en <TeamArea/>
-	const dataFormEditNewVideo = (dataForm) => {
-		const dataCard = console.log("desde newv",dataForm);
-		return dataCard;
-	}
-	//datos de form para agregar cards en <Header/>
-	const dataFormHeader = (dataForm) => {
-		const dataCard = dataForm;
-		return console.log("desde header",dataCard);
-	}
-	// datos de form para editar card en <Header/>
-	const dataFormEditHeader = (dataForm) => {
-		const dataCard = dataForm;
-		return console.log("desde header",dataCard);
-	}
-
-	//====cambio de funcion al enviar datos de formulario====//
-	const funcChangeContext = (dataForm) => {
-		if (formNewVideo) {
-			return dataFormNewVideo(dataForm);
-		} else if (formHeader) {
-			return dataFormHeader(dataForm);
-		} else if (formEditHeader) {
-			return dataFormEditHeader(dataForm);
-		} else if (formEditNewVideo) {
-			return dataFormEditNewVideo(dataForm);
-		}
-	}
 
 	//contexto del formulario
 	const contextForm = {
 		mainAddCard: {
-			state: () => setFormNewVideo(!formNewVideo),
+			stateFunc: () => setFormNewVideo(!formNewVideo),
 			clasName: 'form__new__video',
-			funcData: dataFormNewVideo
+			funcData: (dataForm) => {
+				const dataCard = console.log("desde newV", dataForm);
+				return dataCard;
+			}
 		},
 		editMainCard: {
-			state: () => setFormEditNewVideo(!formEditNewVideo),
+			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
-			funcData: dataFormEditNewVideo
+			funcData: (dataForm) => {
+				const dataCard = console.log("desde newv", dataForm);
+				return dataCard;
+			}
 		},
 		headerAddCard: {
-			state: () => setFormHeader(!formHeader),
+			stateFunc: () => setFormHeader(!formHeader),
 			clasName: 'form__header',
-			funcData: dataFormHeader
+			funcData: (dataForm) => {
+				const dataCard = dataForm;
+				return console.log("desde header", dataCard);
+			}
 		},
 		headerEditCard: {
-			state: () => setFormEditHeader(!formEditHeader),
+			stateFunc: () => setFormEditHeader(!formEditHeader),
 			clasName: 'form__edit',
-			funcData: dataFormEditHeader
+			funcData: (dataForm) => {
+				const dataCard = dataForm;
+				return console.log("desde header edit", dataCard);
+			}
 		},
 
 	}
 
 
-	//alternar formulario
-	const [form, setForm] = useState(false);
-	const viewForm = () => {
-		setForm(!form);
-		console.log("hola");
+	//====cambio de funcion al enviar datos de formulario====//
+	const funcChangeContext = () => {
+		if (formNewVideo) {
+			return {
+				funcData: contextForm.mainAddCard.funcData,
+				stateFunc: contextForm.mainAddCard.stateFunc,
+				class: contextForm.mainAddCard.clasName,
+				state: formNewVideo
+			}
 
+		} else if (formHeader) {
+			return {
+				funcData: contextForm.headerAddCard.funcData,
+				stateFunc: contextForm.headerAddCard.stateFunc,
+				class: contextForm.headerAddCard.clasName,
+				state: formHeader
+			}
+
+		} else if (formEditHeader) {
+			return {
+				funcData: contextForm.headerEditCard.funcData,
+				stateFunc: contextForm.headerEditCard.stateFunc,
+				class: contextForm.headerEditCard.clasName,
+				state: formEditHeader
+			}
+
+		} else if (formEditNewVideo) {
+			return {
+				funcData: contextForm.editMainCard.funcData,
+				stateFunc: contextForm.editMainCard.stateFunc,
+				class: contextForm.editMainCard.clasName,
+				state: formEditNewVideo
+			}
+		}
 	}
 
 	const logo = "img/image 1.png";
@@ -133,7 +140,6 @@ function App() {
 			image: "img/logomain.png",
 			type: "button",
 			action: () => {
-				viewForm();
 				setFormHeader(!formHeader);
 			}
 		},
@@ -150,7 +156,7 @@ function App() {
 			image: "img/logomain.png",
 			type: "button",
 			action: () => {
-
+				
 			}
 		},
 		buttonFormSave: {
@@ -179,16 +185,16 @@ function App() {
 	// Categorías y colores
 	const categories = [
 		{
-			categoria: "Back End",
-			colorPrimario: "#57C278",
+			category: "Back End",
+			primaryColor: "#57C278",
 		},
 		{
-			categoria: "Front End",
-			colorPrimario: "#82CFFA",
+			category: "Front End",
+			primaryColor: "#82CFFA",
 		},
 		{
-			categoria: "Innovación y Gestión",
-			colorPrimario: "#A6D157",
+			category: "Innovación y Gestión",
+			primaryColor: "#A6D157",
 		},
 	];
 
@@ -201,11 +207,9 @@ function App() {
 			<Header
 				buttons={buttons}
 			/>
-			{form && <Form 		/*si se clica algun boton para crear una card*/
+			{(formNewVideo || formEditNewVideo || formHeader || formEditHeader) && <Form 	/*si se clica algun boton para crear una card*/
 				buttons={buttons}
-				contextForm={contextForm}
 				funcChangeContext={funcChangeContext}
-				formHeader={formHeader}
 			/>}
 			{/* <NewVideoPage
         categorias={categorias.map((categoria) => categoria.categoria)}

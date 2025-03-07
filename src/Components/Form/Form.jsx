@@ -11,7 +11,7 @@ import Button from '../Button/Button';
 
 function Form(props) {
 
-    const { anadirCards, buttons, contextForm, funcChangeContext } = props;
+    const { anadirCards, contextForm, buttons, funcChangeContext } = props;
     
     // evita que se recargue la pagina al enviar el formulario
     const submitForm= (e) => {
@@ -25,8 +25,8 @@ function Form(props) {
             video,
             description
         }
-        contextForm.headerAddCard.state;
-        funcChangeContext(datosEnviar);
+        console.log(funcChangeContext().funcData(datosEnviar));
+        funcChangeContext().stateFunc();
         
     }
 
@@ -38,7 +38,7 @@ function Form(props) {
     const [video, setVideo] = useState("")
     const [description, setDescription] = useState("")
 
-    return <section className='form__container'>
+    return <section className={funcChangeContext().class}>
         <h2>
             Crear Tarjeta
         </h2>
