@@ -56,7 +56,7 @@ function App() {
 			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				const dataCard = console.log("desde newv", dataForm);
+				const dataCard = console.log("desde edit newv", dataForm);
 				return dataCard;
 			}
 		},
@@ -151,12 +151,20 @@ function App() {
 				window.location.href = '/';
 			}
 		},
-		buttonEditCard: {
-			text: "Agregar video",
+		buttonEditHeader: {
+			text: "Editar video",
 			image: "img/logomain.png",
 			type: "button",
 			action: () => {
-				
+				setFormEditHeader(!formEditHeader);
+			}
+		},
+		buttonEditNewVideo:{
+			text: "EditarVideo video",
+			image: "img/logomain.png",
+			type: "button",
+			action: () => {
+				setFormEditNewVideo(!formEditNewVideo)
 			}
 		},
 		buttonFormSave: {
@@ -197,7 +205,7 @@ function App() {
 			primaryColor: "#A6D157",
 		},
 	];
-
+    
 	return (
 		<>
 			<NavBar
@@ -207,7 +215,9 @@ function App() {
 			<Header
 				buttons={buttons}
 			/>
-			{(formNewVideo || formEditNewVideo || formHeader || formEditHeader) && <Form 	/*si se clica algun boton para crear una card*/
+			{/*si se clica algun boton para crear una card*/}
+			{(formNewVideo || formEditNewVideo || formHeader || formEditHeader) 
+				&& <Form 
 				buttons={buttons}
 				funcChangeContext={funcChangeContext}
 			/>}

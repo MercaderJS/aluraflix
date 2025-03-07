@@ -1,9 +1,10 @@
 import './Card.css'
 import ButonsCard from '../ButonsCard/ButonsCard'
+import Button from '../Button/Button'
 import { useState } from 'react'
 
 function Card(props) {
-    const { cards, eliminarCard } = props
+    const { cards, eliminarCard, action, text } = props
     const [play, setPlay] = useState(true);
     const isPlay = () => setPlay(!play);
 
@@ -24,9 +25,10 @@ function Card(props) {
                 )
                 } */}
 
-                <ButonsCard 
-                    eliminarCard={eliminarCard}
-                    cards={cards}
+                <Button
+                    action={action}
+                    text={text}
+
                 />
             </article>
     )

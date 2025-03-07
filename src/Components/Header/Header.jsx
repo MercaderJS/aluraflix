@@ -28,9 +28,10 @@ function Header(props) {
                 />
 
                 <Card
-                    text={buttons.buttonEditCard}
+                    text={buttons.buttonEditHeader.text}
                     buttonRole="button__header"
-                    action={buttons}
+                    action={buttons.buttonEditNewVideo.action}
+
                 />
 
             </div>
