@@ -12,28 +12,6 @@ import Form from './Components/Form/Form'
 
 
 function App() {
-	/* // Recupera las tarjetas del localStorage al cargar la página
-	// const [cards, actualizarCards] = useState(() => {
-	//   const savedCards = localStorage.getItem('cards');
-	//   return savedCards ? JSON.parse(savedCards) : [];
-	// });
-
-	// // Registrar nueva tarjeta
-	// const anadirCards = (card) => {
-	//   const nuevasCards = [...cards, card];
-	//   actualizarCards(nuevasCards);
-	//   localStorage.setItem('cards', JSON.stringify(nuevasCards)); // Guarda en localStorage
-	// };
-
-	// // Eliminar tarjeta
-	// const eliminarCard = (titulo) => {
-	//   const nuevasCards = cards.filter((card, index) => card.titulo != titulo);
-	//   localStorage.setItem('cards', JSON.stringify(nuevasCards)); // Actualiza en localStorage
-	//   alert("El video ha sido eliminado");
-	//   actualizarCards(nuevasCards);
-	//   console.log("borrando", nuevasCards);
-	// };
-	*/
 
 	//estado del contexto del formulario
 	const [formNewVideo, setFormNewVideo] = useState(false);
@@ -185,11 +163,6 @@ function App() {
 		}
 	}
 
-	// // Actualiza automáticamente en localStorage si cambia el estado de cards
-	// useEffect(() => {
-	//   localStorage.setItem('cards', JSON.stringify(cards));
-	// }, [cards]);
-
 	// Categorías y colores
 	const categories = [
 		{
@@ -221,20 +194,7 @@ function App() {
 				buttons={buttons}
 				funcChangeContext={funcChangeContext}
 			/>}
-			{/* <NewVideoPage
-        categorias={categorias.map((categoria) => categoria.categoria)}
-        anadirCards={anadirCards}
-      /> */}
-			{/* {categorias.map((categoria) => (
-        <TeamArea
-    		eliminarCard={eliminarCard}
-    		datos={categoria}
-    		key={categoria.categoria}
-    		cards={cards.filter((card) => card.categoria === categoria.categoria)}
-    		anadirCards={anadirCards}
-    		/>
-    		))}
-      <TeamArea /> */}
+			
 			<Footer />
 		</>
 	);
