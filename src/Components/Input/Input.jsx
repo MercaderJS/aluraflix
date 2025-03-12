@@ -2,11 +2,9 @@ import './Input.css'
 
 function Input(props) {
     const { label, placeholder, setValue, value } = props;
-    console.log(props);
 
     const change = (e) => {
-        setValue(e.target.value)
-        console.log(value);
+        setValue(e.target.value);
         
     }
 
