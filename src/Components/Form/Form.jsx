@@ -25,8 +25,8 @@ function Form(props) {
             video,
             description
         }
-        console.log(funcChangeContext().funcData(datosEnviar));
         funcChangeContext().stateFunc();
+        funcChangeContext().funcData(datosEnviar);
         
     }
 

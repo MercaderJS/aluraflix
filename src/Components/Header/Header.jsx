@@ -2,11 +2,9 @@ import { useState } from "react"
 import "./Header.css"
 import Button from "../Button/Button"
 import Card from "../Card/Card";
-import Form from "../Form/Form";
-
 
 function Header(props) {
-    const { buttons } = props;
+    const { buttons, cardHeader } = props;
 
     return (
         <header className="header">
@@ -17,7 +15,7 @@ function Header(props) {
                 <h2>Challenge React</h2>
                 <p>
                     Este challenge es una forma de aprendizaje.
-                    Es un mecanismo donde podrás comprometerte en la resolución 
+                    Es un mecanismo donde podrás comprometerte en la resolución
                     de un problema para poder aplicar
                     todos los conocimientos adquiridos en la formación React.
                 </p>
@@ -26,14 +24,19 @@ function Header(props) {
                     buttonRole="button__header"
                     action={buttons.buttonHeader.action}
                 />
-
-                <Card
-                    text={buttons.buttonEditHeader.text}
-                    buttonRole="button__header"
-                    action={buttons.buttonEditNewVideo.action}
-
-                />
-
+                {
+                    cardHeader.map((card) =>{
+                        return (<Card
+                            key={card.title}
+                            title={card.title}
+                            category={card.category}
+                            img={card.img}
+                            video={card.video}
+                            description={card.description}
+                            buttons={buttons}
+                        />)
+                    })
+                }
             </div>
         </header>
     )

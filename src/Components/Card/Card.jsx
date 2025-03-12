@@ -1,33 +1,21 @@
 import './Card.css'
-import ButonsCard from '../ButonsCard/ButonsCard'
 import Button from '../Button/Button'
 import { useState } from 'react'
 
 function Card(props) {
-    const { cards, eliminarCard, action, text } = props
+    const { video, buttons, title } = props;
     const [play, setPlay] = useState(true);
     const isPlay = () => setPlay(!play);
 
 
     return (
             <article className='card'>
-                {/* {play ? (
-                    <img src={`${cards.imagen}`}
-                        alt="portada"
-                        className='iframe'
-                        onClick={isPlay}
-                    />
-                ) : (
-                    <iframe src={`${cards.video}`}
-                        className='iframe'
-                    >
-                    </iframe>
-                )
-                } */}
+                
+                <iframe src={video} >{title}</iframe>
 
                 <Button
-                    action={action}
-                    text={text}
+                    action={buttons.buttonEditHeader.action}
+                    text={buttons.buttonEditHeader.text}
 
                 />
             </article>

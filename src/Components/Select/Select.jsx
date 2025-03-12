@@ -10,8 +10,7 @@ function Select(props) {
     ]
 
     const change = (e) => {
-        setValue(e.target.value)
-        // console.log(value);
+        setValue(e.target.value);
     }
 
     return (

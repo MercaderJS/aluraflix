@@ -18,7 +18,8 @@ function App() {
 	const [formHeader, setFormHeader] = useState(false);
 	const [formEditHeader, setFormEditHeader] = useState(false);
 	const [formEditNewVideo, setFormEditNewVideo] = useState(false);
-
+	// informaion de cards
+	const [cardHeader, setCardHeader] = useState([]);
 
 	//contexto del formulario
 	const contextForm = {
@@ -26,16 +27,16 @@ function App() {
 			stateFunc: () => setFormNewVideo(!formNewVideo),
 			clasName: 'form__new__video',
 			funcData: (dataForm) => {
-				const dataCard = console.log("desde newV", dataForm);
-				return dataCard;
+				const dataCard = dataForm;
+				// setCards([...cards,dataCard]);
 			}
 		},
 		editMainCard: {
 			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				const dataCard = console.log("desde edit newv", dataForm);
-				return dataCard;
+				const dataCard = dataForm;
+				// setCards([...card,dataCard]);
 			}
 		},
 		headerAddCard: {
@@ -43,7 +44,7 @@ function App() {
 			clasName: 'form__header',
 			funcData: (dataForm) => {
 				const dataCard = dataForm;
-				return console.log("desde header", dataCard);
+				return cards = setCardHeader([...cardHeader,dataCard]);
 			}
 		},
 		headerEditCard: {
@@ -51,7 +52,7 @@ function App() {
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
 				const dataCard = dataForm;
-				return console.log("desde header edit", dataCard);
+				cards = setCardHeader([...dataCard]);
 			}
 		},
 
@@ -137,7 +138,7 @@ function App() {
 				setFormEditHeader(!formEditHeader);
 			}
 		},
-		buttonEditNewVideo:{
+		buttonEditNewVideo: {
 			text: "EditarVideo video",
 			image: "img/logomain.png",
 			type: "button",
@@ -178,7 +179,7 @@ function App() {
 			primaryColor: "#A6D157",
 		},
 	];
-    
+	
 	return (
 		<>
 			<NavBar
@@ -187,17 +188,17 @@ function App() {
 			/>
 			<Header
 				buttons={buttons}
+				cardHeader={cardHeader}
 			/>
 			{/*si se clica algun boton para crear una card*/}
-			{(formNewVideo || formEditNewVideo || formHeader || formEditHeader) 
-				&& <Form 
-				buttons={buttons}
-				funcChangeContext={funcChangeContext}
-			/>}
-			
+			{(formNewVideo || formEditNewVideo || formHeader || formEditHeader)
+				&& <Form
+					buttons={buttons}
+					funcChangeContext={funcChangeContext}
+				/>}
+
 			<Footer />
 		</>
 	);
 }
-
 export default App;
