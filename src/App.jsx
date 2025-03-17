@@ -18,9 +18,32 @@ function App() {
 	const [formHeader, setFormHeader] = useState(false);
 	const [formEditHeader, setFormEditHeader] = useState(false);
 	const [formEditNewVideo, setFormEditNewVideo] = useState(false);
-	// informaion de cards
+
+	// informaion de cards en header
 	const [cardHeader, setCardHeader] = useState([]);
 
+	// informacion cards en TeamArea
+	const [cardsMain, setCardsMain] = useState([]);
+
+	// alternar boton de agregar card en header
+	const [ buttonAddCardHeader, setbuttonAddCard ] = useState(true);
+
+	// categorias de cards
+	const categories = [
+		{
+			title: "Back End",
+			primaryColor: "#57C278",
+		},
+		{
+			title: "Front End",
+			primaryColor: "#82CFFA",
+		},
+		{
+			title: "Innovación y Gestión",
+			primaryColor: "#A6D157",
+		},
+	];
+	
 	//contexto del formulario
 	const contextForm = {
 		mainAddCard: {
@@ -28,7 +51,7 @@ function App() {
 			clasName: 'form__new__video',
 			funcData: (dataForm) => {
 				const dataCard = dataForm;
-				// setCards([...cards,dataCard]);
+				setCardsMain([...cardsMain,dataCard])
 			}
 		},
 		editMainCard: {
@@ -36,15 +59,18 @@ function App() {
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
 				const dataCard = dataForm;
-				// setCards([...card,dataCard]);
+				setCardsMain([{...cardsMain}]);
 			}
 		},
 		headerAddCard: {
-			stateFunc: () => setFormHeader(!formHeader),
+			stateFunc: () => {
+				setFormHeader(!formHeader),
+				setbuttonAddCard(!buttonAddCardHeader);
+			},
 			clasName: 'form__header',
 			funcData: (dataForm) => {
 				const dataCard = dataForm;
-				return cards = setCardHeader([...cardHeader,dataCard]);
+				setCardHeader([...cardHeader,dataCard]);
 			}
 		},
 		headerEditCard: {
@@ -52,7 +78,8 @@ function App() {
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
 				const dataCard = dataForm;
-				cards = setCardHeader([...dataCard]);
+				setCardHeader([{...dataCard}]);
+			
 			}
 		},
 
@@ -73,6 +100,7 @@ function App() {
 			return {
 				funcData: contextForm.headerAddCard.funcData,
 				stateFunc: contextForm.headerAddCard.stateFunc,
+				stateBtn: contextForm.headerAddCard.stateFuncBtnAdd,
 				class: contextForm.headerAddCard.clasName,
 				state: formHeader
 			}
@@ -164,22 +192,6 @@ function App() {
 		}
 	}
 
-	// Categorías y colores
-	const categories = [
-		{
-			category: "Back End",
-			primaryColor: "#57C278",
-		},
-		{
-			category: "Front End",
-			primaryColor: "#82CFFA",
-		},
-		{
-			category: "Innovación y Gestión",
-			primaryColor: "#A6D157",
-		},
-	];
-	
 	return (
 		<>
 			<NavBar
@@ -189,16 +201,32 @@ function App() {
 			<Header
 				buttons={buttons}
 				cardHeader={cardHeader}
+				stateButton={buttonAddCardHeader}
 			/>
 			{/*si se clica algun boton para crear una card*/}
 			{(formNewVideo || formEditNewVideo || formHeader || formEditHeader)
 				&& <Form
 					buttons={buttons}
 					funcChangeContext={funcChangeContext}
-				/>}
-
+				/>
+			}
+			{
+			cardsMain.length > 0 
+			&&
+			categories.map((category)=>
+					<TeamArea
+						key={category.title}
+						title={category.title}
+						primaryColor={category.primaryColor}
+						cards={cardsMain}
+						
+					/>
+)
+			}
 			<Footer />
 		</>
+		
 	);
+	
 }
 export default App;
