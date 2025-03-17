@@ -28,7 +28,7 @@ function App() {
 	// alternar boton de agregar card en header
 	const [ buttonAddCardHeader, setbuttonAddCard ] = useState(true);
 
-	// categorias de cards
+	// categorias de c
 	const categories = [
 		{
 			title: "Back End",
@@ -50,15 +50,13 @@ function App() {
 			stateFunc: () => setFormNewVideo(!formNewVideo),
 			clasName: 'form__new__video',
 			funcData: (dataForm) => {
-				const dataCard = dataForm;
-				setCardsMain([...cardsMain,dataCard])
+				setCardsMain([...cardsMain,dataForm])
 			}
 		},
 		editMainCard: {
 			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				const dataCard = dataForm;
 				setCardsMain([{...cardsMain}]);
 			}
 		},
@@ -77,8 +75,7 @@ function App() {
 			stateFunc: () => setFormEditHeader(!formEditHeader),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				const dataCard = dataForm;
-				setCardHeader([{...dataCard}]);
+				setCardHeader([{...dataForm}]);
 			
 			}
 		},
@@ -134,14 +131,6 @@ function App() {
 				window.location.href = "/";
 			}
 		},
-		buttonNewVideo: {
-			text: "Nuevo Video",
-			image: "",
-			type: "button",
-			action: () => {
-				setFormNewVideo(!formNewVideo);
-			}
-		},
 		buttonHeader: {
 			text: "Agregar video",
 			image: "img/logomain.png",
@@ -150,7 +139,7 @@ function App() {
 				setFormHeader(!formHeader);
 			}
 		},
-		buttonDeleteCard: {
+		buttonDeleteHeader: {
 			text: "Agregar video",
 			image: "img/logomain.png",
 			type: "button",
@@ -166,12 +155,28 @@ function App() {
 				setFormEditHeader(!formEditHeader);
 			}
 		},
+		buttonNewVideo: {
+			text: "Nuevo Video",
+			image: "",
+			type: "button",
+			action: () => {
+				setFormNewVideo(!formNewVideo);
+			}
+		},
 		buttonEditNewVideo: {
 			text: "EditarVideo video",
 			image: "img/logomain.png",
 			type: "button",
 			action: () => {
 				setFormEditNewVideo(!formEditNewVideo)
+			}
+		},
+		buttonDeleteMain: {
+			text: "Agregar video",
+			image: "img/logomain.png",
+			type: "button",
+			action: () => {
+				window.location.href = '/';
 			}
 		},
 		buttonFormSave: {
@@ -211,17 +216,14 @@ function App() {
 				/>
 			}
 			{
-			cardsMain.length > 0 
-			&&
 			categories.map((category)=>
 					<TeamArea
 						key={category.title}
 						title={category.title}
 						primaryColor={category.primaryColor}
-						cards={cardsMain}
-						
-					/>
-)
+						cards={cardsMain.filter((card)=>card.category === category.title)}
+						buttons={buttons}
+					/>)
 			}
 			<Footer />
 		</>
