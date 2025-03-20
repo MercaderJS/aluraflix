@@ -1,10 +1,8 @@
 import './TeamArea.css'
-import CardTeam from '../Card/Card'
-
+import Card from '../Card/Card';
 function TeamArea(props) {
-    const { colorPrimario, colorSecundario, categoria } = props.datos
-    const { cards, eliminarCard} = props
-    const backgroundTitle = { backgroundColor: colorPrimario }
+    const { cards, primaryColor, title,buttonEditNewVideo, buttonDeleteMain, cardKey} = props;
+    const backgroundTitle = { backgroundColor: primaryColor };
     return (
         <>
         {
@@ -15,19 +13,22 @@ function TeamArea(props) {
                     style={backgroundTitle}
                 >
                     <h3 >
-                        {categoria}
+                        {title}
                     </h3>
                 </h3>
 		<div className='video__container'>
-                {/* {
-                        cards.map((cards, indice) => <CardTeam
-                            eliminarCard={eliminarCard}
-                            cards={cards}
-                            key={indice}
-                            colorPrimario={colorPrimario}
-                        />)
-                    } */}
-                </div>
+
+                {
+                cards.map((card)=><Card
+                key={card.title}
+                video={card.video}
+                title={card.title}
+                buttonDelete={buttonDeleteMain}
+                buttonEdit={buttonEditNewVideo}
+                />)
+                }
+            
+        </div>
 
             </section>
         }
@@ -36,5 +37,5 @@ function TeamArea(props) {
 
 }
 
-export default TeamArea
+export default TeamArea;
 

@@ -1,17 +1,15 @@
+import { useState } from 'react';
 import './Form.css'
-// import Input from '../Input/Input';
-// import InputSelect from '../InputSelect/InputSelect';
 import ButtonForm from '../ButonForm/ButonForm';
 import Select from '../Select/Select';
 import Input from '../Input/Input';
 import InputDesc from '../InputDesc/InputDesc';
-import { useState } from 'react';
 import Button from '../Button/Button';
 
 
 function Form(props) {
 
-    const { anadirCards, contextForm, buttons, funcChangeContext } = props;
+    const { buttons, funcChangeContext } = props;
     
     // evita que se recargue la pagina al enviar el formulario
     const submitForm= (e) => {

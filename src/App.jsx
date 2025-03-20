@@ -67,8 +67,7 @@ function App() {
 			},
 			clasName: 'form__header',
 			funcData: (dataForm) => {
-				const dataCard = dataForm;
-				setCardHeader([...cardHeader,dataCard]);
+				setCardHeader([...cardHeader,dataForm]);
 			}
 		},
 		headerEditCard: {
@@ -140,7 +139,7 @@ function App() {
 			}
 		},
 		buttonDeleteHeader: {
-			text: "Agregar video",
+			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
 			action: () => {
@@ -172,11 +171,11 @@ function App() {
 			}
 		},
 		buttonDeleteMain: {
-			text: "Agregar video",
+			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
-			action: () => {
-				window.location.href = '/';
+			action: (title) => {				
+				setCardsMain(cardsMain.filter((card) => card.title !== title));
 			}
 		},
 		buttonFormSave: {
@@ -222,7 +221,9 @@ function App() {
 						title={category.title}
 						primaryColor={category.primaryColor}
 						cards={cardsMain.filter((card)=>card.category === category.title)}
-						buttons={buttons}
+						cardKey={cardsMain.title}
+						buttonEditNewVideo={buttons.buttonEditNewVideo}
+						buttonDeleteMain={buttons.buttonDeleteMain}
 					/>)
 			}
 			<Footer />
