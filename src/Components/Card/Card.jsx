@@ -14,13 +14,12 @@ function Card(props) {
                 <iframe src={video} key={key}></iframe>
                 {title}
                 <Button
-                    action={buttonEdit}
+                    action={buttonEdit.action}
                     text={"Edit"}
                 />
                 <Button
                     action={buttonDelete.action}
                     text={"Delete"}
-                    title={title}
                 />
             </article>
     )

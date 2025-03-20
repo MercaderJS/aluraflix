@@ -57,7 +57,7 @@ function App() {
 			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				setCardsMain([{...cardsMain}]);
+				setCardsMain([{...dataForm}]);
 			}
 		},
 		headerAddCard: {
@@ -166,8 +166,8 @@ function App() {
 			text: "EditarVideo video",
 			image: "img/logomain.png",
 			type: "button",
-			action: () => {
-				setFormEditNewVideo(!formEditNewVideo)
+			action: (title) => {
+				setFormEditNewVideo(!formEditNewVideo);
 			}
 		},
 		buttonDeleteMain: {

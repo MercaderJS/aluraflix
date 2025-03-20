@@ -1,7 +1,7 @@
 import './TeamArea.css'
 import Card from '../Card/Card';
 function TeamArea(props) {
-    const { cards, primaryColor, title,buttonEditNewVideo, buttonDeleteMain, cardKey} = props;
+    const { cards, primaryColor, title,buttonEditNewVideo, buttonDeleteMain } = props;
     const backgroundTitle = { backgroundColor: primaryColor };
     return (
         <>
@@ -29,7 +29,7 @@ function TeamArea(props) {
                 }
             
         </div>
-
+        
             </section>
         }
     </>
