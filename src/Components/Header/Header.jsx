@@ -34,7 +34,8 @@ function Header(props) {
                             img={card.img}
                             video={card.video}
                             description={card.description}
-                            buttons={buttons}
+                            buttonDelete={buttons.buttonDeleteHeader}
+                            buttonEdit={buttons.buttonEditHeader}
                         />)
                     })
                 }

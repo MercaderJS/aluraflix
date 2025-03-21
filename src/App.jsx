@@ -126,7 +126,7 @@ function App() {
 			text: "Home",
 			image: "",
 			type: "button",
-			action: () => {
+			action: (title) => {
 				window.location.href = "/";
 			}
 		},
@@ -134,7 +134,7 @@ function App() {
 			text: "Agregar video",
 			image: "img/logomain.png",
 			type: "button",
-			action: () => {
+			action: (title) => {
 				setFormHeader(!formHeader);
 			}
 		},
@@ -142,7 +142,7 @@ function App() {
 			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
-			action: () => {
+			action: (title) => {
 				window.location.href = '/';
 			}
 		},
@@ -150,7 +150,7 @@ function App() {
 			text: "Editar video",
 			image: "img/logomain.png",
 			type: "button",
-			action: () => {
+			action: (title) => {
 				setFormEditHeader(!formEditHeader);
 			}
 		},
@@ -158,7 +158,7 @@ function App() {
 			text: "Nuevo Video",
 			image: "",
 			type: "button",
-			action: () => {
+			action: (title) => {
 				setFormNewVideo(!formNewVideo);
 			}
 		},
@@ -182,7 +182,7 @@ function App() {
 			text: "Añadir",
 			image: "",
 			type: "submit",
-			action: () => {
+			action: (title) => {
 
 			}
 		},
@@ -190,12 +190,13 @@ function App() {
 			text: "Limpiar",
 			image: "",
 			type: "submit",
-			action: () => {
+			action: (title) => {
 
 			}
 		}
 	}
 
+	
 	return (
 		<>
 			<NavBar
