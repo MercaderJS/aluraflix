@@ -20,7 +20,6 @@ function TeamArea(props) {
 
                 {
                 cards.map((card)=><Card
-                key={card.title}
                 video={card.video}
                 title={card.title}
                 buttonDelete={buttonDeleteMain}

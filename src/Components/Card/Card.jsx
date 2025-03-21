@@ -3,7 +3,7 @@ import Button from '../Button/Button'
 import { useState } from 'react'
 
 function Card(props) {
-    const { video, buttonEdit, buttonDelete, title, key, card } = props;
+    const { video, buttonEdit, buttonDelete, title, key } = props;
     const [play, setPlay] = useState(true);
     const isPlay = () => setPlay(!play);
 
@@ -20,6 +20,8 @@ function Card(props) {
                 <Button
                     action={buttonDelete.action}
                     text={"Delete"}
+                    title={title}
+                    key={key}
                 />
             </article>
     )
