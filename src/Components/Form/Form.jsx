@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Form.css'
-import ButtonForm from '../ButonForm/ButonForm';
+import { v7 as uid } from 'uuid';
 import Select from '../Select/Select';
 import Input from '../Input/Input';
 import InputDesc from '../InputDesc/InputDesc';
@@ -14,15 +14,18 @@ function Form(props) {
     // evita que se recargue la pagina al enviar el formulario
     const submitForm= (e) => {
         e.preventDefault()
-        console.log("Manejar el envio", e)
+        const id = uid();
 
         let datosEnviar = {
+            id,
             title,
             category,
             img,
             video,
             description
         }
+        console.log(datosEnviar);
+        
         funcChangeContext().stateFunc();
         funcChangeContext().funcData(datosEnviar);
         

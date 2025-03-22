@@ -174,8 +174,8 @@ function App() {
 			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
-			action: (title) => {				
-				setCardsMain(cardsMain.filter((card) => card.title !== title));
+			action: (id) => {				
+				setCardsMain(cardsMain.filter((card) => card.id !== id));
 			}
 		},
 		buttonFormSave: {
