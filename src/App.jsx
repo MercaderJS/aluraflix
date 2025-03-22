@@ -126,7 +126,7 @@ function App() {
 			text: "Home",
 			image: "",
 			type: "button",
-			action: (title) => {
+			action: (id) => {
 				window.location.href = "/";
 			}
 		},
@@ -134,7 +134,7 @@ function App() {
 			text: "Agregar video",
 			image: "img/logomain.png",
 			type: "button",
-			action: (title) => {
+			action: (id) => {
 				setFormHeader(!formHeader);
 			}
 		},
@@ -142,7 +142,7 @@ function App() {
 			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
-			action: (title) => {
+			action: (id) => {
 				window.location.href = '/';
 			}
 		},
@@ -150,7 +150,7 @@ function App() {
 			text: "Editar video",
 			image: "img/logomain.png",
 			type: "button",
-			action: (title) => {
+			action: (id) => {
 				setFormEditHeader(!formEditHeader);
 			}
 		},
@@ -158,7 +158,7 @@ function App() {
 			text: "Nuevo Video",
 			image: "",
 			type: "button",
-			action: (title) => {
+			action: (id) => {
 				setFormNewVideo(!formNewVideo);
 			}
 		},
@@ -166,7 +166,7 @@ function App() {
 			text: "EditarVideo video",
 			image: "img/logomain.png",
 			type: "button",
-			action: (title) => {
+			action: (id) => {
 				setFormEditNewVideo(!formEditNewVideo);
 			}
 		},
@@ -174,15 +174,15 @@ function App() {
 			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
-			action: (title) => {				
-				setCardsMain(cardsMain.filter((card) => card.title !== title));
+			action: (id) => {				
+				setCardsMain(cardsMain.filter((card) => card.id !== id));
 			}
 		},
 		buttonFormSave: {
 			text: "Añadir",
 			image: "",
 			type: "submit",
-			action: (title) => {
+			action: (id) => {
 
 			}
 		},
@@ -190,7 +190,7 @@ function App() {
 			text: "Limpiar",
 			image: "",
 			type: "submit",
-			action: (title) => {
+			action: (id) => {
 
 			}
 		}
