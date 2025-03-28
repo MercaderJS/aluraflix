@@ -19,7 +19,7 @@ function App() {
 	const [formEditHeader, setFormEditHeader] = useState(false);
 	const [formEditNewVideo, setFormEditNewVideo] = useState(false);
 
-	// informaion de cards en header
+	// informacion de cards en header
 	const [cardHeader, setCardHeader] = useState([]);
 
 	// informacion cards en TeamArea
@@ -28,6 +28,8 @@ function App() {
 	// alternar boton de agregar card en header
 	const [ buttonAddCardHeader, setbuttonAddCard ] = useState(true);
 
+	// cards en TeamArea filtradas al clicar boton edit
+	const [ newCardsMain, setNewCardsMain ] = useState([]);
 	// categorias de c
 	const categories = [
 		{
@@ -57,7 +59,8 @@ function App() {
 			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				setCardsMain([{...dataForm}]);
+				setCardsMain([...newCardsMain,dataForm])
+
 			}
 		},
 		headerAddCard: {
@@ -74,7 +77,7 @@ function App() {
 			stateFunc: () => setFormEditHeader(!formEditHeader),
 			clasName: 'form__edit',
 			funcData: (dataForm) => {
-				setCardHeader([{...dataForm}]);
+				setCardHeader([...cardsMain,...dataForm]);
 			
 			}
 		},
@@ -168,6 +171,7 @@ function App() {
 			type: "button",
 			action: (id) => {
 				setFormEditNewVideo(!formEditNewVideo);
+				setNewCardsMain(cardsMain.filter((card)=> card.id !== id));
 			}
 		},
 		buttonDeleteMain: {
@@ -195,7 +199,6 @@ function App() {
 			}
 		}
 	}
-
 	
 	return (
 		<>
