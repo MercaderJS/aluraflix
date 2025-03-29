@@ -1,12 +1,12 @@
 import './Button.css'
 
 export default function Button(props) {
-    const { buttonRole, text, action, type, id} = props;
+    const { text, action, type, id, selector} = props;
     
     return (
         <button
             onClick={() => action(id)}
-            className={buttonRole}
+            className={selector}
             type={type}
         >
             {text}

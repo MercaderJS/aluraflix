@@ -1,4 +1,3 @@
-import { replace } from 'react-router';
 import './Select.css'
 
 function Select(props) {
@@ -36,4 +35,3 @@ function Select(props) {
 }
 
 export default Select
-replace();

@@ -50,14 +50,14 @@ function App() {
 	const contextForm = {
 		mainAddCard: {
 			stateFunc: () => setFormNewVideo(!formNewVideo),
-			clasName: 'form__new__video',
+			selector: 'new__video--form',
 			funcData: (dataForm) => {
 				setCardsMain([...cardsMain,dataForm])
 			}
 		},
 		editMainCard: {
 			stateFunc: () => setFormEditNewVideo(!formEditNewVideo),
-			clasName: 'form__edit',
+			selector: 'edit__card--form',
 			funcData: (dataForm) => {
 				setCardsMain([...newCardsMain,dataForm])
 
@@ -68,14 +68,14 @@ function App() {
 				setFormHeader(!formHeader),
 				setbuttonAddCard(!buttonAddCardHeader);
 			},
-			clasName: 'form__header',
+			selector: 'header__form',
 			funcData: (dataForm) => {
 				setCardHeader([...cardHeader,dataForm]);
 			}
 		},
 		headerEditCard: {
 			stateFunc: () => setFormEditHeader(!formEditHeader),
-			clasName: 'form__edit',
+			selector: 'edit__form',
 			funcData: (dataForm) => {
 				setCardHeader([...cardsMain,...dataForm]);
 			
@@ -91,7 +91,7 @@ function App() {
 			return {
 				funcData: contextForm.mainAddCard.funcData,
 				stateFunc: contextForm.mainAddCard.stateFunc,
-				class: contextForm.mainAddCard.clasName,
+				selector: contextForm.mainAddCard.selector,
 				state: formNewVideo
 			}
 
@@ -100,7 +100,7 @@ function App() {
 				funcData: contextForm.headerAddCard.funcData,
 				stateFunc: contextForm.headerAddCard.stateFunc,
 				stateBtn: contextForm.headerAddCard.stateFuncBtnAdd,
-				class: contextForm.headerAddCard.clasName,
+				selector: contextForm.headerAddCard.selector,
 				state: formHeader
 			}
 
@@ -108,7 +108,7 @@ function App() {
 			return {
 				funcData: contextForm.headerEditCard.funcData,
 				stateFunc: contextForm.headerEditCard.stateFunc,
-				class: contextForm.headerEditCard.clasName,
+				selector: contextForm.headerEditCard.selector,
 				state: formEditHeader
 			}
 
@@ -116,7 +116,7 @@ function App() {
 			return {
 				funcData: contextForm.editMainCard.funcData,
 				stateFunc: contextForm.editMainCard.stateFunc,
-				class: contextForm.editMainCard.clasName,
+				selector: contextForm.editMainCard.selector,
 				state: formEditNewVideo
 			}
 		}
@@ -126,6 +126,7 @@ function App() {
 	// Botones 
 	const buttons = {
 		buttonHome: {
+			selector: "home__button",
 			text: "Home",
 			image: "",
 			type: "button",
@@ -134,6 +135,7 @@ function App() {
 			}
 		},
 		buttonHeader: {
+			selector: "header__button",
 			text: "Agregar video",
 			image: "img/logomain.png",
 			type: "button",
@@ -142,6 +144,7 @@ function App() {
 			}
 		},
 		buttonDeleteHeader: {
+			selector: "header__delete--button",
 			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
@@ -150,6 +153,7 @@ function App() {
 			}
 		},
 		buttonEditHeader: {
+			selector: "header__edit--button",
 			text: "Editar video",
 			image: "img/logomain.png",
 			type: "button",
@@ -158,6 +162,7 @@ function App() {
 			}
 		},
 		buttonNewVideo: {
+			selector: "new__video--button",
 			text: "Nuevo Video",
 			image: "",
 			type: "button",
@@ -166,6 +171,7 @@ function App() {
 			}
 		},
 		buttonEditNewVideo: {
+			selector: "new__video__edit--button",
 			text: "EditarVideo video",
 			image: "img/logomain.png",
 			type: "button",
@@ -175,6 +181,7 @@ function App() {
 			}
 		},
 		buttonDeleteMain: {
+			selector: "header__delete--button",
 			text: "Eliminar",
 			image: "img/logomain.png",
 			type: "button",
@@ -183,17 +190,19 @@ function App() {
 			}
 		},
 		buttonFormSave: {
+			selector: "form__save--button",
 			text: "Añadir",
 			image: "",
 			type: "submit",
 			action: (id) => {
-
+				
 			}
 		},
 		buttonFormClean: {
+			selector: "form__clean--button",
 			text: "Limpiar",
 			image: "",
-			type: "submit",
+			type: "reset",
 			action: (id) => {
 
 			}

@@ -10,9 +10,9 @@ import Button from '../Button/Button';
 function Form(props) {
 
     const { buttons, funcChangeContext } = props;
-    
+
     // evita que se recargue la pagina al enviar el formulario
-    const submitForm= (e) => {
+    const submitForm = (e) => {
         e.preventDefault()
         const id = uid();
 
@@ -25,10 +25,10 @@ function Form(props) {
             description
         }
         console.log(datosEnviar);
-        
+
         funcChangeContext().stateFunc();
         funcChangeContext().funcData(datosEnviar);
-        
+
     }
 
 
@@ -39,11 +39,13 @@ function Form(props) {
     const [video, setVideo] = useState("")
     const [description, setDescription] = useState("")
 
-    return <section className={funcChangeContext().class}>
+    return <section className={funcChangeContext().selector}>
         <h2>
             Crear Tarjeta
         </h2>
-        <form action="" title='Formulario de nuevo video'
+        <form 
+            action="" 
+            title='Formulario de nuevo video'
             onSubmit={submitForm}
         >
 
@@ -68,10 +70,10 @@ function Form(props) {
                 setValue={setImg}
             />
             <Input
-		required
+                required
                 label="Video"
                 value={video}
-		        placeholder="Ingresa el enlace del video"
+                placeholder="Ingresa el enlace del video"
                 setValue={setVideo}
             />
             <InputDesc
@@ -83,12 +85,18 @@ function Form(props) {
 
             />
             <Button
-                buttonrole={'guardar__button'}
+                class={buttons.buttonFormSave.class}
+                text={buttons.buttonFormSave.text}
+                type={buttons.buttonFormSave.type}
+                action={buttons.buttonFormSave.action}
+            />
+            <Button
+                buttonrole={'button__clean'}
                 text={buttons.buttonFormClean.text}
                 type={buttons.buttonFormClean.type}
-            
+                
             />
-            
+
         </form>
     </section>
 

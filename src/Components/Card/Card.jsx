@@ -15,6 +15,7 @@ function Card(props) {
                 {title}
                 <Button
                     action={buttonEdit.action}
+                    selector={buttonEdit.selector}
                     text={"Edit"}
                     id={id}
                 />
