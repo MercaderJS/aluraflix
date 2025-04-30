@@ -246,3 +246,4 @@ function App() {
 	
 }
 export default App;
+//prueba en nvim termux 
